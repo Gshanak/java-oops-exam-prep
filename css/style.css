@@ -1,0 +1,683 @@
+/* ═══════════════════════════════════════════════════════════════
+   Java OOPs Learning Platform - Styles
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  --bg: #0f172a;
+  --bg-card: #1e293b;
+  --bg-card-hover: #283548;
+  --bg-inset: #0f172a;
+  --text: #e2e8f0;
+  --text-dim: #94a3b8;
+  --text-bright: #f8fafc;
+  --accent: #6366f1;
+  --accent-hover: #818cf8;
+  --accent-dim: rgba(99, 102, 241, 0.15);
+  --green: #22c55e;
+  --green-dim: rgba(34, 197, 94, 0.15);
+  --red: #ef4444;
+  --red-dim: rgba(239, 68, 68, 0.15);
+  --orange: #f97316;
+  --orange-dim: rgba(249, 115, 22, 0.15);
+  --yellow: #eab308;
+  --yellow-dim: rgba(234, 179, 8, 0.15);
+  --border: #334155;
+  --border-light: #475569;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── Top Navigation ──────────────────────────────────────────── */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+}
+
+.topbar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo span { color: var(--text-bright); }
+
+.nav-btns {
+  display: flex;
+  gap: 6px;
+}
+
+.nav-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.nav-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+/* ── Progress Bar ────────────────────────────────────────────── */
+.progress-bar-container {
+  max-width: 1100px;
+  margin: 16px auto 0;
+  padding: 0 24px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+
+.progress-bar {
+  height: 6px;
+  background: var(--bg-card);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--green));
+  border-radius: 3px;
+  transition: width 0.4s ease;
+  width: 0%;
+}
+
+/* ── Main Container ─────────────────────────────────────────── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* ── Dashboard View ─────────────────────────────────────────── */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.unit-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.unit-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.unit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+}
+
+.unit-card[data-unit="1"]::before { background: var(--accent); }
+.unit-card[data-unit="2"]::before { background: var(--green); }
+.unit-card[data-unit="3"]::before { background: var(--orange); }
+.unit-card[data-unit="4"]::before { background: var(--red); }
+.unit-card[data-unit="5"]::before { background: var(--yellow); }
+
+.unit-number {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.unit-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  margin: 6px 0 12px;
+  line-height: 1.3;
+}
+
+.unit-stats {
+  display: flex;
+  gap: 12px;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.unit-stats .stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.unit-stats .learned {
+  color: var(--green);
+  font-weight: 600;
+}
+
+.unit-progress {
+  margin-top: 12px;
+  height: 4px;
+  background: var(--bg-inset);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.unit-progress-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+
+/* ── Question List View ─────────────────────────────────────── */
+.question-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.back-btn:hover { color: var(--accent); }
+
+.unit-header-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-bright);
+}
+
+.filter-btns {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.filter-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover { border-color: var(--accent); }
+
+.filter-btn.active {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.question-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.question-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.question-item:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent);
+}
+
+.question-item.learned {
+  border-left: 3px solid var(--green);
+}
+
+.question-num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  min-width: 30px;
+}
+
+.question-type-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.type-essay {
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+.type-short {
+  background: var(--green-dim);
+  color: var(--green);
+}
+
+.question-text {
+  flex: 1;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.question-prob {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.prob-very-high { background: var(--red-dim); color: var(--red); }
+.prob-high { background: var(--orange-dim); color: var(--orange); }
+.prob-medium-high { background: var(--yellow-dim); color: var(--yellow); }
+
+.question-learned-icon {
+  color: var(--green);
+  font-size: 1.1rem;
+}
+
+/* ── Flashcard Study View ───────────────────────────────────── */
+.study-view {
+  display: none;
+}
+
+.study-view.active {
+  display: block;
+}
+
+.flashcard-container {
+  perspective: 1200px;
+  margin: 30px auto;
+  max-width: 750px;
+}
+
+.flashcard {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  cursor: pointer;
+}
+
+.flashcard.flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--radius);
+  padding: 32px;
+  overflow-y: auto;
+}
+
+.flashcard-front {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+}
+
+.flashcard-back {
+  background: var(--bg-card);
+  border: 1px solid var(--accent);
+  transform: rotateY(180deg);
+}
+
+.flashcard-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.flashcard-meta {
+  display: flex;
+  gap: 8px;
+}
+
+.flashcard-question {
+  font-size: 1.15rem;
+  color: var(--text-bright);
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.flashcard-hint {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 30px;
+  padding: 12px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-sm);
+}
+
+/* Flashcard Back Content */
+.flashcard-answer {
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.flashcard-answer h3 {
+  color: var(--accent);
+  font-size: 1rem;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.flashcard-answer h3:first-child { margin-top: 0; }
+
+.flashcard-answer p { margin-bottom: 8px; }
+
+.flashcard-answer ul, .flashcard-answer ol {
+  margin: 8px 0 8px 20px;
+}
+
+.flashcard-answer li { margin-bottom: 4px; }
+
+.flashcard-answer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0;
+}
+
+.flashcard-answer th, .flashcard-answer td {
+  border: 1px solid var(--border);
+  padding: 6px 10px;
+  text-align: left;
+  font-size: 0.82rem;
+}
+
+.flashcard-answer th {
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.flashcard-answer pre {
+  background: var(--bg-inset);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin: 8px 0;
+  overflow-x: auto;
+  font-size: 0.82rem;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  color: #a5d6ff;
+  line-height: 1.5;
+}
+
+.flashcard-answer code {
+  background: var(--bg-inset);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.85rem;
+  color: #a5d6ff;
+}
+
+.key-points {
+  background: var(--bg-inset);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  margin-bottom: 16px;
+  border-left: 3px solid var(--accent);
+}
+
+.key-points h4 {
+  color: var(--accent);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.key-points ul {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.key-points li {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+}
+
+.flashcard-sources {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+/* ── Study Controls ─────────────────────────────────────────── */
+.study-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.control-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 10px 24px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.control-btn:hover:not(:disabled) {
+  background: var(--bg-card-hover);
+  border-color: var(--accent);
+}
+
+.control-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.control-btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+.control-btn.primary:hover {
+  background: var(--accent-hover);
+}
+
+.control-btn.success {
+  background: var(--green);
+  border-color: var(--green);
+  color: white;
+}
+
+.control-btn.success.learned {
+  background: transparent;
+  color: var(--green);
+}
+
+.study-counter {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  min-width: 60px;
+  text-align: center;
+}
+
+/* ── Utility ─────────────────────────────────────────────────── */
+.hidden { display: none !important; }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .topbar-inner {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .container { padding: 16px; }
+  .flashcard-front, .flashcard-back { padding: 20px; }
+  .flashcard-question { font-size: 1rem; }
+  .question-item { flex-wrap: wrap; }
+  .study-controls { flex-wrap: wrap; }
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-light); }
+
+/* ── Dashboard Header ───────────────────────────────────────── */
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.dashboard-header h1 {
+  font-size: 1.8rem;
+  color: var(--text-bright);
+  margin-bottom: 4px;
+}
+
+.dashboard-header p {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.dashboard-stats {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.dash-stat {
+  text-align: center;
+}
+
+.dash-stat .num {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.dash-stat .label {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ── Reset Button ───────────────────────────────────────────── */
+.reset-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: all 0.2s;
+}
+
+.reset-btn:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
