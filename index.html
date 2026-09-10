@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java OOPs Exam Prep - Interactive Learning Platform</title>
+  <meta name="description" content="Interactive learning platform for Java OOPs exam preparation with 35 most probable questions across 5 units.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9749;</text></svg>">
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="logo" onclick="app.goDashboard()">
+        <span>&#9749;</span> Java <span>OOPs</span>
+      </div>
+      <div class="nav-btns" id="navBtns"></div>
+    </div>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar-container">
+    <div class="progress-info" id="progressInfo">
+      <span>0 of 35 questions learned</span>
+      <span>0%</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </div>
+
+  <!-- Main App Container -->
+  <div class="container" id="app"></div>
+
+  <!-- Scripts -->
+  <script src="js/questions-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
